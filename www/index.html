@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="Content-Security-Policy" content="default-src * data:; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+  <script src="components/loader.js"></script>
+  <script src="lib/angular/angular.min.js"></script>
+  <script src="lib/onsenui/js/onsenui.min.js"></script>
+  <script src="lib/onsenui/js/angular-onsenui.min.js"></script>
+  <script src="calc/calc.js"></script>
+
+  <link rel="stylesheet" href="components/loader.css">
+  <link rel="stylesheet" href="lib/onsenui/css/onsenui.css">
+  <link rel="stylesheet" href="lib/onsenui/css/onsen-css-components.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/calc.css">
+
+  <script>
+    ons.bootstrap()
+      .controller('HelloController', function() {
+        this.world = 'World';
+      });
+    ons.ready(function() {
+      console.log("Onsen UI is ready!");
+    });
+  </script>
+</head>
+<body>
+  <ons-page ng-controller="HelloController as hello">
+    <ons-toolbar>
+      <div class="center">Chiffres</div>
+    </ons-toolbar>
+    <ons-bottom-toolbar>
+        <!--<span class="toolbar-button">Button</span>-->
+        <div style="display: flex; justify-content: space-around">
+            <!--<button class="button button--material" onclick="clearLast()">Effacer</button>
+            <button class="button button--material" onclick="reset()">Recommencer</button>
+            <button class="button button--material" onclick="submitResult()">Valider</button>-->
+            <ons-button modifier="cta" style="background-color: orange;" onclick="clearLast()">
+                  <ons-icon icon="ion-ios-undo" fixed-width="true"></ons-icon>
+            </ons-button>
+            <ons-button modifier="cta" style="background-color: red;" onclick="reset()">
+                  <ons-icon icon="ion-close" fixed-width="true"></ons-icon>
+            </ons-button>
+            <ons-button modifier="cta" style="background-color: green;" onclick="submitResult()">
+                  <ons-icon icon="ion-checkmark-round" fixed-width="true"></ons-icon>
+            </ons-button>
+        </div>
+    </ons-bottom-toolbar>
+
+    <div class="content" style="margin-top: 70px;margin-left: 20px;">
+        <div>
+            <button id="n1" class="button" onclick="numClic(1)">1</button>
+            <button id="n2" class="button" onclick="numClic(2)">2</button>
+            <button id="n3" class="button" onclick="numClic(3)">3</button>
+        </div>
+        <br>
+        <div>
+            <button id="o1" class="button" onclick="opClic('+')">+</button>
+            <button id="o2" class="button" onclick="opClic('-')">-</button>
+        </div>
+        <br>
+        <textarea id="calcArea" class="textarea--transparent" rows="9" readonly>1 + 1 = 2</textarea>
+    </div>
+  </ons-page>
+</body>
+</html>

@@ -1,0 +1,13 @@
+/* This is a CSS file */
+
+textarea#calcArea{
+color:#666;
+font-size:18px;
+-moz-border-radius: 8px; -webkit-border-radius: 8px;
+margin:5px 0px 10px 0px;
+padding:10px;
+/*height:75px;*/
+width:90%;
+border:#999 1px solid;
+font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
